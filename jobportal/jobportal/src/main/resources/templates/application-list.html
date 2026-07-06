@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Application List</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="navbar">
+  <h1>Application List</h1>
+</div>
+
+<div class="container">
+  <h2>All Applications</h2>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Candidate</th>
+      <th>Job</th>
+      <th>Company</th>
+      <th>Applied Date</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+
+    <tr th:each="a : ${applications}">
+      <td th:text="${a.id}"></td>
+      <td th:text="${a.candidate.fullName}"></td>
+      <td th:text="${a.job.title}"></td>
+      <td th:text="${a.job.company}"></td>
+      <td th:text="${a.appliedDate}"></td>
+      <td th:text="${a.status}"></td>
+      <td>
+        <a th:href="@{/applications/delete/{id}(id=${a.id})}" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+  </table>
+
+  <br>
+  <a href="/" class="btn btn-secondary">Back to Home</a>
+</div>
+
+</body>
+</html>

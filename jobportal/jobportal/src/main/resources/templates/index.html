@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Job Portal</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="navbar">
+    <h1>Job Portal / Recruitment Management System</h1>
+    <p>Spring Boot + Thymeleaf + MySQL</p>
+</div>
+
+<div class="container">
+    <h2>Dashboard</h2>
+
+    <div class="home-links">
+        <a class="card-link" href="/candidates/register">Register Candidate</a>
+        <a class="card-link" href="/candidates/list">View Candidates</a>
+        <a class="card-link" href="/jobs/add">Add Job</a>
+        <a class="card-link" href="/jobs/list">View Jobs</a>
+        <a class="card-link" href="/applications/apply">Apply for Job</a>
+        <a class="card-link" href="/applications/list">View Applications</a>
+    </div>
+</div>
+
+<div class="footer">
+    Job Portal Project © 2026
+</div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Candidate Registration</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="navbar">
+    <h1>Candidate Registration</h1>
+    <p>Add candidate details into the recruitment portal</p>
+</div>
+
+<div class="container">
+    <h2>Register Candidate</h2>
+
+    <form th:action="@{/candidates/save}" th:object="${candidate}" method="post">
+        <div>
+            <label>Name</label>
+            <input type="text" th:field="*{fullName}" required>
+        </div>
+
+        <div>
+            <label>Email</label>
+            <input type="email" th:field="*{email}" required>
+        </div>
+
+        <div>
+            <label>Password</label>
+            <input type="password" th:field="*{password}" required>
+        </div>
+
+        <div>
+            <label>Phone</label>
+            <input type="text" th:field="*{phone}">
+        </div>
+
+        <div>
+            <label>Skills</label>
+            <input type="text" th:field="*{skills}">
+        </div>
+
+        <div>
+            <label>Education</label>
+            <input type="text" th:field="*{education}">
+        </div>
+
+        <div>
+            <label>Resume</label>
+            <input type="text" th:field="*{resume}" placeholder="Resume file name or path">
+        </div>
+
+        <button type="submit" class="btn">Save Candidate</button>
+        <a href="/" class="btn btn-secondary">Back to Home</a>
+    </form>
+</div>
+
+<div class="footer">Job Portal Project © 2026</div>
+
+</body>
+</html>

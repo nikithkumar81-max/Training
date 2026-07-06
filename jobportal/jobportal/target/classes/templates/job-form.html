@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Job</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="navbar">
+    <h1>Add Job</h1>
+    <p>Create a new job opening</p>
+</div>
+
+<div class="container">
+    <h2>Add Job</h2>
+
+    <form th:action="@{/jobs/save}" th:object="${job}" method="post">
+        <div>
+            <label>Title</label>
+            <input type="text" th:field="*{title}" required>
+        </div>
+
+        <div>
+            <label>Company</label>
+            <input type="text" th:field="*{company}" required>
+        </div>
+
+        <div>
+            <label>Location</label>
+            <input type="text" th:field="*{location}" required>
+        </div>
+
+        <div>
+            <label>Salary</label>
+            <input type="number" step="0.01" th:field="*{salary}">
+        </div>
+
+        <div>
+            <label>Description</label>
+            <textarea th:field="*{description}"></textarea>
+        </div>
+
+        <div>
+            <label>Last Date</label>
+            <input type="date" th:field="*{lastDate}">
+        </div>
+
+        <button type="submit" class="btn">Save Job</button>
+        <a href="/" class="btn btn-secondary">Back to Home</a>
+    </form>
+</div>
+
+<div class="footer">Job Portal Project © 2026</div>
+
+</body>
+</html>

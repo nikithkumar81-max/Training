@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Apply for Job</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="navbar">
+    <h1>Apply for Job</h1>
+    <p>Candidate job application form</p>
+</div>
+
+<div class="container">
+    <h2>Apply for a Job</h2>
+
+    <p th:if="${error}" th:text="${error}" class="error"></p>
+
+    <form th:action="@{/applications/save}" method="post">
+        <div>
+            <label>Candidate</label>
+            <select name="candidateId" required>
+                <option value="">-- Select Candidate --</option>
+                <option th:each="c : ${candidates}"
+                        th:value="${c.id}"
+                        th:text="${c.fullName}">
+                </option>
+            </select>
+        </div>
+
+        <div>
+            <label>Job</label>
+            <select name="jobId" required>
+                <option value="">-- Select Job --</option>
+                <option th:each="j : ${jobs}"
+                        th:value="${j.id}"
+                        th:text="${j.title + ' - ' + j.company}">
+                </option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn">Apply</button>
+        <a href="/" class="btn btn-secondary">Back to Home</a>
+    </form>
+</div>
+
+<div class="footer">Job Portal Project © 2026</div>
+
+</body>
+</html>
